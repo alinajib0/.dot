@@ -1,0 +1,57 @@
+[global]
+    ### Display ###
+    monitor = 0
+    follow = mouse
+    width = 300
+    height = (0, 300)  # Dynamic height with max 300px
+    origin = top-right
+    offset = (10, 50)  # New syntax for offset
+    notification_limit = 5
+
+    ### Appearance ###
+    font = JetBrains Mono 10
+    line_height = 0
+    padding = 8
+    horizontal_padding = 8
+    frame_width = 2
+    separator_height = 2
+    frame_color = "#ebbcba"
+    separator_color = frame
+
+    ### Colors ###
+    background = "#191724"
+    foreground = "#e0def4"
+    highlight = "#31748f"
+
+    ### Behavior ###
+    idle_threshold = 120
+    ignore_dbusclose = false
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = true
+    sticky_history = true
+    history_length = 20
+    browser = xdg-open
+
+    ### Shortcuts ###
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+
+[urgency_low]
+    background = "#26233a"
+    foreground = "#908caa"
+    frame_color = "#6e6a86"
+    timeout = 4
+
+[urgency_normal]
+    background = "#1f1d2e"
+    foreground = "#e0def4"
+    frame_color = "#31748f"
+    timeout = 6
+
+[urgency_critical]
+    background = "#eb6f92"
+    foreground = "#191724"
+    frame_color = "#eb6f92"
+    timeout = 0

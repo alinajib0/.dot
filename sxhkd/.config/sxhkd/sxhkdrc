@@ -1,0 +1,45 @@
+super + r
+  pkill -USR1 -x sxhkd
+
+super + alt + k
+  notify-send "apple"
+
+super + Return
+	$TERMINAL
+
+super + c
+	qalculate-gtk
+
+super + f
+  $TERMINAL -e nnn -Rr
+
+super + ctrl + f
+  $TERMINAL -e tmux \
+      new-session  "nnn -Rr"
+
+super + e
+	$TERMINAL -e nvim
+
+super + shift + w
+	$BROWSER
+
+super + d
+	dmenu_run
+
+super + Escape
+  	xkill
+
+Print
+	flameshot gui
+
+super + shift + p
+	mpv $(xclip -o)
+
+super + t
+	clipmenu
+
+super + alt + x 
+	~/script/exit.sh
+
+super + {equal, minus, BackSpace}
+	~/script/volume.sh {up, down, toggle}

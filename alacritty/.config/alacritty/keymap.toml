@@ -1,0 +1,14 @@
+[keyboard]
+bindings = [
+    # Vim-like scrolling
+    { key = "Y", mods = "Control|Shift", action = "Copy" },
+    { key = "P", mods = "Control|Shift", action = "Paste" },
+    { key = "K", mods = "Control|Shift", action = "ScrollLineUp" },
+    { key = "J", mods = "Control|Shift", action = "ScrollLineDown" },
+    { key = "U", mods = "Control|Shift", action = "ScrollHalfPageUp" },
+    { key = "D", mods = "Control|Shift", action = "ScrollHalfPageDown" },
+    
+    # Search
+    { key = "F", mods = "Control|Shift", action = "SearchForward" },
+    { key = "B", mods = "Control|Shift", action = "SearchBackward" }
+]

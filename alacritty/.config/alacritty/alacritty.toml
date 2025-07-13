@@ -1,0 +1,25 @@
+[general]
+import = ["~/.config/alacritty/colors.toml", "~/.config/alacritty/fonts.toml", "~/.config/alacritty/keymap.toml"]
+live_config_reload = true
+
+[env]
+TERM = "alacritty"
+
+[window]
+dimensions = { columns = 95, lines = 24 }
+padding = { x = 4, y = 4 }
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+vi_mode_style = "Underline"  # Change to Underline when in Vim mode
+blink_interval = 750
+blink_timeout = 5
+unfocused_hollow = false
+thickness = 0.15

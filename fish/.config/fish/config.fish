@@ -1,0 +1,82 @@
+doas loadkeys ~/.config/loadkeys/loadkeysrc
+
+if test -z "$DISPLAY" && test (tty) = /dev/tty1
+    startx
+end
+
+function fish_greeting
+	fastfetch
+end
+
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+set -gx HOME /home/najib
+set -gx SHELL fish
+set -gx TERMINAL alacritty
+set -gx BROWSER librewolf
+set -gx FILE_BROWSER nnn
+
+# set -gx PATH $PATH ~/.config/tmux/plugins/tmuxifier/bin
+
+alias i 'doas pacman -S'
+alias u 'doas pacman -Syu'
+alias q 'pacman -Ss'
+alias r 'doas pacman -Rns'
+alias lspk 'pacman -Qe'
+
+alias cat bat
+alias cd __zoxide_z
+alias cdi __zoxide_zi
+
+alias l 'eza --color=auto -l --icons=always'
+alias ll 'eza --color=auto -la --icons=always'
+alias ls 'eza --color=auto --icons=always'
+alias la 'eza --color=auto -a --icons=always'
+alias lt 'eza --color=auto -T --icons=always'
+alias lta 'eza --color=auto -aT --icons=always'
+
+alias czf 'fzf --preview="bat {}"'
+alias nzf 'nvim $(fzf --preview="bat {}")'
+alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
+
+alias vi nvim
+
+fish_config theme choose "Rosé Pine Moon"
+
+zoxide init fish | source
+
+# tmuxifier init - fish
+
+# eza dracula 
+set -gx EXA_COLORS "\
+uu=36:\
+gu=37:\
+sn=32:\
+sb=32:\
+da=34:\
+ur=34:\
+uw=35:\
+ux=36:\
+ue=36:\
+gr=34:\
+gw=35:\
+gx=36:\
+tr=34:\
+tw=35:\
+fi=37"
+
+# dracula fzf
+set -Ux FZF_DEFAULT_OPTS "--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
+
+export NNN_PLUG='n:nuke;j:autojump;o:fzopen;p:preview-tui;t:preview-tabbed;i:imgview;f:fzcd;d:dragdrop;m:nmount;x:xdgdefault;'
+
+# set -gx NNN_OPENER "/home/alinajib/.config/nnn/plugins/nuke" # Default opener for GUI files
+set -gx NNN_COLORS 5236
+
+# NNN dracula
+set -gx NNN_FCOLORS 0404040000000600010F0F02
+set -gx NNN_FIFO "/tmp/nnn.fifo"
+set -gx NNN_FCOLORS 0404040000000600010F0F02
+set -gx NNN_BMS "h:~;d:~/Download;p:~/photo;"
+
+
