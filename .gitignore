@@ -1,0 +1,10 @@
+src/src/dwm/*
+!src/src/dwm/patches.h
+!src/src/dwm/config.h
+
+src/src/dmenu/*
+!src/src/dmenu/patches.h
+!src/src/dmenu/config.h
+
+src/src/slstatus/*
+!src/src/slstatus/config.h
