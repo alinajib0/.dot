@@ -8,3 +8,6 @@ src/src/dmenu/*
 
 src/src/slstatus/*
 !src/src/slstatus/config.h
+
+./src/src/nnn/
+./src/src/tabbed/
