@@ -44,6 +44,7 @@ alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -
 alias xclipc 'xclip -selection clipboard'
 
 alias vi nvim
+alias lg lazygit
 
 fish_config theme choose "Rosé Pine Moon"
 
