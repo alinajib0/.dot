@@ -9,5 +9,6 @@ src/src/dmenu/*
 src/src/slstatus/*
 !src/src/slstatus/config.h
 
-./src/src/nnn/
-./src/src/tabbed/
+/src/src/nnn
+/src/src/tabbed
+/nnn
