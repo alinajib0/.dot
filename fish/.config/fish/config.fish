@@ -1,5 +1,4 @@
 if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
-  echo apple
   doas loadkeys ~/.config/loadkeys/loadkeysrc
 end
 
