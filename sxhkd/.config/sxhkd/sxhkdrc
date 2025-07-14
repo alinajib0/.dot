@@ -33,7 +33,10 @@ Print
 	flameshot gui
 
 super + shift + p
-	mpv $(xclip -o)
+	mpv $(xclipc  -o)
+
+super + s
+	mpv $(xclip -o | xclipc)
 
 super + t
 	clipmenu

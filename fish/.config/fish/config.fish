@@ -1,7 +1,10 @@
-doas loadkeys ~/.config/loadkeys/loadkeysrc
+if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
+  echo apple
+  doas loadkeys ~/.config/loadkeys/loadkeysrc
+end
 
-if test -z "$DISPLAY" && test (tty) = /dev/tty1
-    startx
+if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
+  exec startx
 end
 
 function fish_greeting
@@ -38,6 +41,7 @@ alias lta 'eza --color=auto -aT --icons=always'
 alias czf 'fzf --preview="bat {}"'
 alias nzf 'nvim $(fzf --preview="bat {}")'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
+alias xclipc 'xclip -selection clipboard'
 
 alias vi nvim
 
