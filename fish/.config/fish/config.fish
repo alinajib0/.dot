@@ -40,6 +40,7 @@ alias lta 'eza --color=auto -aT --icons=always'
 
 alias czf 'fzf --preview="bat {}"'
 alias nzf 'nvim $(fzf --preview="bat {}")'
+alias cdf 'cd $(fzf --preview="bat {}")'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
 alias xclipc 'xclip -selection clipboard'
 
