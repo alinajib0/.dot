@@ -1,20 +1,22 @@
 #!/bin/bash
 
-# Define power options
-options="Poweroff\nReboot\nSuspend\nLogout"
+options="Lock Screen\nLogout\nSuspend\nReboot\nPoweroff"
+choice=$(echo -e "$options" | dmenu)
 
-# Use dmenu to select an option
-choice=$(echo -e "$options" | dmenu -i)
-
-# Execute the selected option
-case $choice in
-    "Poweroff")
-        doas poweroff
+case "$choice" in
+    "Lock Screen")
+        slock
         ;;
-    "Reboot")
-        doas reboot
+    "Logout")
+        pkill -u "$USER"
         ;;
     "Suspend")
-        doas zzz
+        systemctl suspend && slock
+        ;;
+    "Reboot")
+        systemctl reboot
+        ;;
+    "Poweroff")
+        systemctl poweroff
         ;;
 esac
