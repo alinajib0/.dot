@@ -18,6 +18,7 @@ set -gx TERMINAL alacritty
 set -gx BROWSER librewolf
 set -gx FILE_BROWSER nnn
 set -gx PAGER less
+set -gx NVIM_APPNAME "nvim"
 
 # set -gx PATH $PATH ~/.config/tmux/plugins/tmuxifier/bin
 
@@ -30,6 +31,7 @@ alias lspk 'pacman -Qe'
 alias cat bat
 alias cd __zoxide_z
 alias cdi __zoxide_zi
+alias e exit
 
 alias l 'eza --color=auto -l --icons=always'
 alias ll 'eza --color=auto -la --icons=always'
@@ -43,8 +45,11 @@ alias nzf 'nvim $(fzf --preview="bat {}")'
 alias cdf 'cd $(fzf --preview="bat {}")'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
 alias xclipc 'xclip -selection clipboard'
+alias nvchad 'NVIM_APPNAME="nvim_nvchad" nvim'
 
+alias v nvim
 alias vi nvim
+alias vim nvim
 alias lg lazygit
 
 fish_config theme choose "Rosé Pine Moon"
@@ -90,4 +95,5 @@ set -gx NNN_MCLICK ls # for midle click
 
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
 
-
+# opencode
+fish_add_path /home/najib/.opencode/bin
