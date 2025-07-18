@@ -17,7 +17,16 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      --
+      -- disable tokyonight
+      -- vim.cmd.colorscheme 'tokyonight-night'
+    end,
+  },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function()
+      vim.cmd 'colorscheme rose-pine-moon'
     end,
   },
 }

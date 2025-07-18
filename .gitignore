@@ -12,3 +12,4 @@ src/src/slstatus/*
 /src/src/nnn
 /src/src/tabbed
 /nnn
+nvim/.config/nvim/lazy-lock.json
