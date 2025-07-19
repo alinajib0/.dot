@@ -10,6 +10,12 @@ function fish_greeting
 	fastfetch
 end
 
+# opencode
+fish_add_path /home/najib/.opencode/bin
+
+# tmuxifier
+fish_add_path ~/.config/tmux/plugins/tmuxifier/bin
+
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx HOME /home/najib
@@ -19,8 +25,6 @@ set -gx BROWSER librewolf
 set -gx FILE_BROWSER nnn
 set -gx PAGER less
 set -gx NVIM_APPNAME "nvim"
-
-# set -gx PATH $PATH ~/.config/tmux/plugins/tmuxifier/bin
 
 alias i 'doas pacman -S'
 alias u 'doas pacman -Syu'
@@ -56,7 +60,7 @@ fish_config theme choose "Rosé Pine Moon"
 
 zoxide init fish | source
 
-# tmuxifier init - fish
+eval (tmuxifier init - fish)
 
 # eza dracula 
 set -gx EXA_COLORS "\
@@ -95,5 +99,3 @@ set -gx NNN_MCLICK ls # for midle click
 
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
 
-# opencode
-fish_add_path /home/najib/.opencode/bin
