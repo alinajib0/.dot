@@ -14,7 +14,7 @@ map('v', '<Leader>d', '"_d')
 map('v', '<Leader>D', '"_D')
 
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+map('t', '<leader><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -49,6 +49,18 @@ map('n', '<leader>zig', '<cmd>LspRestart<cr>')
 
 map('i', '<C-c>', '<Esc>')
 map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+
+-- Horizontal terminal (default)
+vim.keymap.set('n', '<C-\\>', '<cmd>ToggleTerm direction=horizontal<CR>', { desc = 'Toggle horizontal term' })
+
+-- Vertical terminal
+vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<CR>', { desc = 'Toggle vertical term' })
+
+-- Floating terminal
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=float<CR>', { desc = 'Toggle floating term' })
+
+-- Tabing terminal
+vim.keymap.set('n', '<leader>tg', '<cmd>ToggleTerm direction=tab<CR>', { desc = 'Toggle floating term' })
 
 -- autocommand
 vim.api.nvim_create_autocmd('TextYankPost', {

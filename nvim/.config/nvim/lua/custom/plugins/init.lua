@@ -24,4 +24,18 @@ return {
       }
     end,
   },
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    opts = {
+      size = 20,
+      open_mapping = false, -- Disable default mapping (we'll set our own)
+      direction = 'horizontal', -- Default direction (can be overridden)
+      float_opts = {
+        border = 'curved',
+        width = 120,
+        height = 30,
+      },
+    },
+  },
 }
