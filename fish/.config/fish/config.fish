@@ -16,6 +16,9 @@ fish_add_path /home/najib/.opencode/bin
 # tmuxifier
 fish_add_path ~/.config/tmux/plugins/tmuxifier/bin
 
+# uv
+source $HOME/.local/bin/env.fish 
+
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx HOME /home/najib
