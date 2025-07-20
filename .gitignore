@@ -1,16 +1,16 @@
-src/src/dwm/*
+src/src
 !src/src/dwm/patches.h
 !src/src/dwm/config.h
-
-src/src/dmenu/*
 !src/src/dmenu/patches.h
 !src/src/dmenu/config.h
-
-src/src/slstatus/*
 !src/src/slstatus/config.h
 
-/src/src/nnn
-/src/src/tabbed
 /nnn
+
 nvim/.config/nvim/lazy-lock.json
-tmux/.config/tmux/plugins/
+tmux/.config/tmux/plugins
+
+mpv/.config/mpv/scripts
+mpv/.config/mpv/fonts
+
+
