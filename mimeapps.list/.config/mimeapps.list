@@ -1,0 +1,8 @@
+
+[Default Applications]
+x-scheme-handler/discord=vesktop.desktop
+application/pdf=org.pwmt.zathura.desktop
+video/mp4=mpv.desktop
+text/plain=nvim.desktop
+image/x-png=nsxiv.desktop
+image/pjpeg=nsxiv.desktop
