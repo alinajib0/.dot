@@ -7,14 +7,7 @@ if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
 end
 
 function fish_greeting
-	fastfetch
 end
-
-# opencode
-fish_add_path /home/najib/.opencode/bin
-
-# tmuxifier
-fish_add_path ~/.config/tmux/plugins/tmuxifier/bin
 
 # uv
 source $HOME/.local/bin/env.fish 
@@ -62,8 +55,6 @@ alias lg lazygit
 fish_config theme choose "Rosé Pine Moon"
 
 zoxide init fish | source
-
-eval (tmuxifier init - fish)
 
 # eza dracula 
 set -gx EXA_COLORS "\
