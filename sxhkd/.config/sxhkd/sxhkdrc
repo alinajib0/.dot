@@ -17,11 +17,14 @@ super + ctrl + f
   $TERMINAL -e tmux \
       new-session  "nnn -Rr"
 
-super + e
+super + v
 	$TERMINAL -e nvim
 
 super + shift + w
 	$BROWSER
+
+super + e
+	thunar
 
 super + d
 	dmenu_run
