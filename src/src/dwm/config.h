@@ -48,7 +48,7 @@ static const char *altbarcmd             = "$HOME/bar.sh"; /* Alternate bar laun
 #if BAR_HOLDBAR_PATCH
 static const int showbar                 = 0;   /* 0 means no bar */
 #else
-static const int showbar                 = 1;   /* 0 means no bar */
+static const int showbar                 = 0;   /* 0 means no bar */
 #endif // BAR_HOLDBAR_PATCH
 static const int topbar                  = 1;   /* 0 means bottom bar */
 #if TAB_PATCH
