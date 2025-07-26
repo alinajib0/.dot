@@ -9,9 +9,6 @@ end
 function fish_greeting
 end
 
-# uv
-source $HOME/.local/bin/env.fish 
-
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx HOME /home/najib
@@ -40,9 +37,9 @@ alias la 'eza --color=auto -a --icons=always'
 alias lt 'eza --color=auto -T --icons=always'
 alias lta 'eza --color=auto -aT --icons=always'
 
-alias czf 'fzf --preview="bat {}"'
-alias nzf 'nvim $(fzf --preview="bat {}")'
-alias cdf 'cd $(fzf --preview="bat {}")'
+alias czf 'cat (fzf --preview="bat {}")'
+alias nzf 'nvim (fzf --preview="bat {}")'
+alias cdf 'cd (fzf --preview="bat {}")'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
 alias xclipc 'xclip -selection clipboard'
 alias nvchad 'NVIM_APPNAME="nvim_nvchad" nvim'
