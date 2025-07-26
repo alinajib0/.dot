@@ -17,7 +17,7 @@
  * or xyw patches, to make the menu stand out from similarly coloured windows.
  * http://tools.suckless.org/dmenu/patches/border/
  */
-#define BORDER_PATCH 1
+#define BORDER_PATCH 0
 
 /* The caret scheme patch, a.k.a. colored caret patch, adds the option to change the color
  * of the caret via the SchemeCaret color scheme.
@@ -119,7 +119,7 @@
  * keyboard layout while dmenu is open.
  * https://github.com/bakkeby/dmenu-flexipatch/pull/22
  */
-#define INPUTMETHOD_PATCH 1
+#define INPUTMETHOD_PATCH 0
 
 /* This patch adds a flag which will cause dmenu to select an item immediately if there
  * is only one matching option left.
@@ -178,7 +178,7 @@
  *
  * https://tools.suckless.org/dmenu/patches/navhistory/
  */
-#define NAVHISTORY_PATCH 1
+#define NAVHISTORY_PATCH 0
 
 /* This patch adds back in the workaround for a BadLength error in the Xft library when color
  * glyphs are used. This is for systems that do not have an updated version of the Xft library
@@ -362,7 +362,7 @@
  *
  * https://tools.suckless.org/dmenu/patches/vi-mode/
  */
-#define VI_MODE_PATCH 1
+#define VI_MODE_PATCH 0
 
 /* Adds extended window manager hints such as _NET_WM_WINDOW_TYPE and _NET_WM_WINDOW_TYPE_DOCK.
  * https://github.com/Baitinq/dmenu/blob/master/patches/dmenu-wm_type.diff

@@ -32,6 +32,7 @@ map('n', '-', '<C-x>')
 map('n', '<C-a>', 'gg<S-v>G')
 
 map('n', 'te', ':tabedit')
+map('n', '<tab>', ':tabnext<CR>')
 
 map('n', 'sh', ':split<Return>')
 map('n', 'ss', ':vsplit<Return>')

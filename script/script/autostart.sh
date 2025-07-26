@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xrandr --output VGA-0 --scale 1.35
-feh --bg-fill ~/photo/wallpaper/1.png
+feh --bg-fill ~/photo/wallpaper/3.png
 setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape
 
 picom &

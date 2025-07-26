@@ -9,7 +9,7 @@
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 10;
 #else
-static const unsigned int borderpx       = 2;   /* border pixel of windows */
+static const unsigned int borderpx       = 1;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 #if BAR_BORDER_PATCH
 /* This allows the bar border size to be explicitly set separately from borderpx.
@@ -32,7 +32,7 @@ static const unsigned int gappih         = 3;  /* horiz inner gap between window
 static const unsigned int gappiv         = 3;  /* vert inner gap between windows */
 static const unsigned int gappoh         = 3;  /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov         = 3;  /* vert outer gap between windows and screen edge */
-static const int smartgaps_fact          = 4;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
+static const int smartgaps_fact          = 2;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 #endif // VANITYGAPS_PATCH
 #if AUTOSTART_PATCH
 static const char autostartblocksh[]     = "autostart_blocking.sh";

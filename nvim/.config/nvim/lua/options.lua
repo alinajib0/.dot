@@ -31,3 +31,9 @@ o.smarttab = true
 o.autoindent = true
 o.expandtab = true
 o.wrap = false
+
+vim.filetype.add {
+  extension = {
+    ['http'] = 'http',
+  },
+}

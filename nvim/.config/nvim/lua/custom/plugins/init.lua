@@ -13,17 +13,17 @@ return {
     ---@type render.md.UserConfig
     opts = {},
   },
-  {
-    'mluders/comfy-line-numbers.nvim',
-    config = function()
-      require('comfy-line-numbers').setup {
-        up_key = 'k',
-        down_key = 'j',
-        hidden_file_types = { 'undotree' },
-        hidden_buffer_types = { 'terminal' },
-      }
-    end,
-  },
+  -- {
+  --   'mluders/comfy-line-numbers.nvim',
+  --   config = function()
+  --     require('comfy-line-numbers').setup {
+  --       up_key = 'k',
+  --       down_key = 'j',
+  --       hidden_file_types = { 'undotree' },
+  --       hidden_buffer_types = { 'terminal' },
+  --     }
+  --   end,
+  -- },
   {
     'akinsho/toggleterm.nvim',
     version = '*',
@@ -35,6 +35,22 @@ return {
         border = 'curved',
         width = 120,
         height = 30,
+      },
+    },
+  },
+  {
+    {
+      'mistweaverco/kulala.nvim',
+      keys = {
+        { '<leader>ns', desc = 'Send request' },
+        { '<leader>na', desc = 'Send all requests' },
+        { '<leader>nb', desc = 'Open scratchpad' },
+      },
+      ft = { 'http', 'rest' },
+      opts = {
+        global_keymaps = false,
+        global_keymaps_prefix = '<leader>R',
+        kulala_keymaps_prefix = '',
       },
     },
   },

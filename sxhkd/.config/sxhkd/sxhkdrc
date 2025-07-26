@@ -5,10 +5,10 @@ super + alt + k
   notify-send "apple"
 
 super + Return
-	$TERMINAL
+  $TERMINAL
 
 super + c
-	qalculate-gtk
+  qalculate-gtk
 
 super + f
   $TERMINAL -e nnn -Rr
@@ -18,34 +18,49 @@ super + ctrl + f
       new-session  "nnn -Rr"
 
 super + v
-	$TERMINAL -e nvim
+  $TERMINAL -e nvim
 
 super + shift + w
-	$BROWSER
+  $BROWSER
 
 super + e
-	thunar
+  thunar
 
 super + d
-	dmenu_run
+  dmenu_run
 
 super + Escape
-  	xkill
+    xkill
 
 Print
-	flameshot gui
+  flameshot gui
 
 super + shift + p
-	mpv $(xclipc  -o)
+  mpv $(xclipc  -o)
 
 super + s
-	mpv $(xclip -o | xclipc)
+  mpv $(xclip -o | xclipc)
 
 super + t
-	clipmenu
+  clipmenu
 
 super + alt + x 
-	~/script/exit.sh
+  ~/script/exit.sh
 
 super + {equal, minus, BackSpace}
-	~/script/volume.sh {up, down, toggle}
+  ~/script/volume.sh {up, down, toggle}
+
+shift + alt + 0
+  xrandr --output VGA-0 --gamma 1.0:1.0:1.0 --brightness 1.0
+
+shift + alt + 1
+  xrandr --output VGA-0 --gamma 1.0:0.95:0.8 --brightness 0.9
+
+shift + alt + 2
+  xrandr --output VGA-0 --gamma 1.0:0.85:0.7 --brightness 0.8
+
+shift + alt + 3
+  xrandr --output VGA-0 --gamma 1.0:0.75:0.55 --brightness 0.7
+
+shift + alt + 4
+  xrandr --output VGA-0 --gamma 1.0:0.6:0.35 --brightness 0.5
