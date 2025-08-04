@@ -1,4 +1,16 @@
+super + b
+  feh --bg-fill (lsn)
+
+super + a
+  dmenu-translate
+
+super + s
+  ~/script/todo
+
 super + r
+  ~/script/dmenu_run_history
+
+super + w
   pkill -USR1 -x sxhkd
 
 super + alt + k
@@ -8,7 +20,7 @@ super + Return
   $TERMINAL
 
 super + c
-  qalculate-gtk
+  qalc
 
 super + f
   $TERMINAL -e nnn -Rr
@@ -44,7 +56,7 @@ super + s
 super + t
   clipmenu
 
-super + alt + x 
+super + alt + z
   ~/script/exit.sh
 
 super + {equal, minus, BackSpace}
