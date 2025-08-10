@@ -6,15 +6,14 @@ return {
     'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
   },
-  lazy = false,
+  lazy = true,
   keys = {
-    { '<C-n>', ':Neotree toggle right<CR>', desc = 'NeoTree reveal', silent = true },
-    { '<leader>e', ':Neotree focus right<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<C-n>', ':Neotree toggle left<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>e', ':Neotree focus left<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
     filesystem = {
       window = {
-        position = 'right',
         mappings = {
           ['\\'] = 'close_window',
         },

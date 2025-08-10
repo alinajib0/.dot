@@ -258,6 +258,8 @@ return {
         'prettierd',
         'eslint',
         'markdownlint',
+        'tailwindcss-language-server',
+        'css-lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

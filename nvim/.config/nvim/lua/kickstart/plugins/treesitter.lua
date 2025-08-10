@@ -30,6 +30,8 @@ return {
         'javascript',
         'typescript',
         'sql',
+        'gitignore',
+        'http',
       },
       auto_install = true,
       highlight = {
