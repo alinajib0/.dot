@@ -37,8 +37,8 @@ map('n', 'te', ':tabedit')
 map('n', '<tab>', ':tabnext<Return>')
 map('n', '<s-tab>', ':tabprev<Return>')
 
-map('n', 'sh', ':split<Return>')
-map('n', 'ss', ':vsplit<Return>')
+map('n', 'sj', ':split<Return>')
+map('n', 'sl', ':vsplit<Return>')
 
 map('v', 'J', ":m '>+1<CR>gv=gv")
 map('v', 'K', ":m '<-2<CR>gv=gv")
