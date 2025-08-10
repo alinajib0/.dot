@@ -19,14 +19,7 @@ return {
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       --
       -- disable tokyonight
-      -- vim.cmd.colorscheme 'tokyonight-night'
-    end,
-  },
-  {
-    'rose-pine/neovim',
-    name = 'rose-pine',
-    config = function()
-      vim.cmd 'colorscheme rose-pine-moon'
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 }
