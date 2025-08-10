@@ -3,7 +3,6 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  'sitiom/nvim-numbertoggle',
   {
     'MeanderingProgrammer/render-markdown.nvim',
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
@@ -13,17 +12,6 @@ return {
     ---@type render.md.UserConfig
     opts = {},
   },
-  -- {
-  --   'mluders/comfy-line-numbers.nvim',
-  --   config = function()
-  --     require('comfy-line-numbers').setup {
-  --       up_key = 'k',
-  --       down_key = 'j',
-  --       hidden_file_types = { 'undotree' },
-  --       hidden_buffer_types = { 'terminal' },
-  --     }
-  --   end,
-  -- },
   {
     'akinsho/toggleterm.nvim',
     version = '*',
@@ -39,19 +27,96 @@ return {
     },
   },
   {
-    {
-      'mistweaverco/kulala.nvim',
-      keys = {
-        { '<leader>ns', desc = 'Send request' },
-        { '<leader>na', desc = 'Send all requests' },
-        { '<leader>nb', desc = 'Open scratchpad' },
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup {
+        opts = {
+          -- Defaults
+          enable_close = true, -- Auto close tags
+          enable_rename = true, -- Auto rename pairs of tags
+          enable_close_on_slash = false, -- Auto close on trailing </
+        },
+        -- Also override individual filetype configs, these take priority.
+        -- Empty by default, useful if one of the "opts" global settings
+        -- doesn't work well in a specific filetype
+        per_filetype = {
+          ['html'] = {
+            enable_close = false,
+          },
+        },
+      }
+    end,
+  },
+  {
+    'zbirenbaum/copilot.lua',
+    event = 'VeryLazy',
+    config = function()
+      require('copilot').setup {
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          accept = false,
+        },
+        panel = {
+          enabled = false,
+        },
+        filetypes = {
+          markdown = true,
+          help = true,
+          html = true,
+          javascript = true,
+          typescript = true,
+          ['*'] = true,
+        },
+      }
+
+      vim.keymap.set('i', '<Tab>', function()
+        if require('copilot.suggestion').is_visible() then
+          require('copilot.suggestion').accept()
+        else
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, false, true), 'n', false)
+        end
+      end, {
+        silent = true,
+      })
+    end,
+  },
+  {
+    'yetone/avante.nvim',
+    event = 'VeryLazy',
+    version = false,
+    opts = {
+      debug = true,
+      auto_suggestions_provider = 'copilot',
+      provider = 'copilot',
+      providers = {
+        openrouter = {
+          __inherited_from = 'openai',
+          endpoint = 'https://openrouter.ai/api/v1',
+          api_key_name = 'avante',
+          model = 'deepseek/deepseek-chat-v3-0324:free',
+          timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+          extra_request_body = {
+            temperature = 0,
+            max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+            reasoning_effort = 'medium', -- low|medium|high, only used for reasoning models
+          },
+        },
       },
-      ft = { 'http', 'rest' },
-      opts = {
-        global_keymaps = false,
-        global_keymaps_prefix = '<leader>R',
-        kulala_keymaps_prefix = '',
-      },
+    },
+    build = 'make',
+    dependencies = {
+      'zbirenbaum/copilot.lua', -- Required for copilot provider
+      'nvim-treesitter/nvim-treesitter',
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'hrsh7th/nvim-cmp',
+      'nvim-tree/nvim-web-devicons',
+      -- Optional:
+      'echasnovski/mini.pick',
+      'nvim-telescope/telescope.nvim',
+      'ibhagwan/fzf-lua',
     },
   },
 }
