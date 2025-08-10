@@ -97,8 +97,8 @@ const
 #endif // XRESOURCES_PATCH
 char *colors[][2] = {
 	/*               fg         bg       */
-	[SchemeNorm] = { "#908caa", "#232136" },
-	[SchemeSel]  = { "#f6c177", "#232136" },
+	[SchemeNorm] = { "#ea9a97", "#232136" },
+	[SchemeSel]  = { "#f6c177", "#393552" },
 	[SchemeOut]  = { "#ea9a97", "#232136" },
 	#if BORDER_PATCH
 	[SchemeBorder] = { "#eb6f92", "#908caa" },
@@ -129,10 +129,10 @@ char *colors[][2] = {
 	#endif // CARET_SCHEME_PATCH
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
-static unsigned int lines      = 10;
+static unsigned int lines      = 0;
 #if GRID_PATCH
 /* -g option; if nonzero, dmenu uses a grid comprised of columns and lines */
-static unsigned int columns    = 1;
+static unsigned int columns    = 0;
 #endif // GRID_PATCH
 #if LINE_HEIGHT_PATCH
 static unsigned int lineheight = 0;         /* -h option; minimum height of a menu line     */

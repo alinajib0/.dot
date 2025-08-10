@@ -81,7 +81,7 @@
  * G columns * L lines grid.
  * https://tools.suckless.org/dmenu/patches/grid/
  */
-#define GRID_PATCH 1
+#define GRID_PATCH 0
 
 /* This patch adds the ability to move left and right through a grid.
  * This patch depends on the grid patch.
