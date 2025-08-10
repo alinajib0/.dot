@@ -1,22 +1,22 @@
 #!/bin/bash
 
-options="Lock Screen\nLogout\nSuspend\nReboot\nPoweroff"
+options="lock Screen\nlogout\nsuspend\nreboot\npoweroff"
 choice=$(echo -e "$options" | dmenu)
 
 case "$choice" in
-    "Lock Screen")
+    "lock Screen")
         slock
         ;;
-    "Logout")
+    "logout")
         pkill -u "$USER"
         ;;
-    "Suspend")
-        systemctl suspend && slock
+    "suspend")
+        doas zzz
         ;;
-    "Reboot")
-        systemctl reboot
+    "reboot")
+        doas reboot
         ;;
-    "Poweroff")
-        systemctl poweroff
+    "poweroff")
+        doas poweroff
         ;;
 esac
