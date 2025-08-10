@@ -31,8 +31,11 @@ map('n', '-', '<C-x>')
 
 map('n', '<C-a>', 'gg<S-v>G')
 
+vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>', { desc = 'Clear search highlights' })
+
 map('n', 'te', ':tabedit')
-map('n', '<tab>', ':tabnext<CR>')
+map('n', '<tab>', ':tabnext<Return>')
+map('n', '<s-tab>', ':tabprev<Return>')
 
 map('n', 'sh', ':split<Return>')
 map('n', 'ss', ':vsplit<Return>')
@@ -69,5 +72,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  desc = 'Format file after save',
+  group = vim.api.nvim_create_augroup('auto-format-on-save', { clear = true }),
+  callback = function()
+    vim.lsp.buf.format()
   end,
 })
