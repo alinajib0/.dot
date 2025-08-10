@@ -1,6 +1,12 @@
 super + b
   feh --bg-fill (lsn)
 
+super + z
+  doas zzz
+
+super + x
+  $TERMINAL -e btop
+
 super + a
   dmenu-translate
 
