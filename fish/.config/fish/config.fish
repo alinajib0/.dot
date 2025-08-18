@@ -1,12 +1,12 @@
 # caps lock as esc in tty
-if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
-  doas loadkeys ~/.config/loadkeys/loadkeysrc
-end
+# if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
+#   doas loadkeys ~/.config/loadkeys/loadkeysrc
+# end
 
 # startx in tty1 after login
-if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
-  exec startx
-end
+# if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
+#   exec startx
+# end
 
 # change fish greeting
 function fish_greeting
@@ -28,15 +28,16 @@ set -gx PAGER less
 set -gx NVIM_APPNAME "nvim"
 set -gx MAIN_PROJECT "chefio"
 set -gx PATH "$HOME/.cargo/bin/:$PATH"
+set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
 
 # aliases
 
 # xbps
-alias i 'doas xbps-install -S'
-alias u 'i; doas xbps-install -u xbps; doas xbps-install -Su'
-alias q 'xbps-query -Rs'
-alias r 'doas xbps-remove -R'
-alias lspk 'xbps-query -l'
+alias i='sudo pacman -S'
+alias u='i; sudo pacman -Syu'
+alias q='pacman -Qs'
+alias r='sudo pacman -R'
+alias lspk='pacman -Ql'
 
 # listing 
 alias l 'eza --color=auto -l --icons=always'
@@ -78,7 +79,7 @@ alias xclipc 'xclip -selection clipboard'
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
 alias nvchad 'NVIM_APPNAME="nvim_nvchad" nvim'
 alias ktmux "tmux kill-server"
-alias main "tmuxifier s main"
+alias start "tmuxifier s"
 
 # nnn config
 
