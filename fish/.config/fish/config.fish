@@ -10,7 +10,7 @@
 
 # change fish greeting
 function fish_greeting
-  fastfetch
+    echo 'WELCOME'
 end
 
 # init in start
@@ -25,8 +25,8 @@ set -gx TERMINAL alacritty
 set -gx BROWSER librewolf
 set -gx FILE_BROWSER nnn
 set -gx PAGER less
-set -gx NVIM_APPNAME "nvim"
-set -gx MAIN_PROJECT "chefio"
+set -gx NVIM_APPNAME nvim
+set -gx MAIN_PROJECT test
 set -gx PATH "$HOME/.cargo/bin/:$PATH"
 set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
 
@@ -35,7 +35,7 @@ set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
 # xbps
 alias i='sudo pacman -S'
 alias u='i; sudo pacman -Syu'
-alias q='pacman -Qs'
+alias q='pacman -Ss'
 alias r='sudo pacman -R'
 alias lspk='pacman -Ql'
 
@@ -55,7 +55,6 @@ alias cat bat
 # shortcuts
 alias v nvim
 alias vi nvim
-alias vim nvim
 alias lg lazygit
 alias e exit
 alias a tgpt
@@ -77,9 +76,18 @@ alias cdf 'cd (fzf --preview="bat {}")'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
 alias xclipc 'xclip -selection clipboard'
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
-alias nvchad 'NVIM_APPNAME="nvim_nvchad" nvim'
+alias vim 'NVIM_APPNAME="nvim_lazy" nvim'
 alias ktmux "tmux kill-server"
-alias start "tmuxifier s"
+
+function start
+    if test (count $argv) -lt 2
+        echo "Usage: start <tmux-session> <project-name>"
+        return 1
+    end
+
+    set -gx MAIN_PROJECT $argv[2]
+    tmuxifier s $argv[1]
+end
 
 # nnn config
 
