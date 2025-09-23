@@ -10,11 +10,15 @@
 
 # change fish greeting
 function fish_greeting
-    echo 'WELCOME'
+    echo WELCOME
 end
 
 # init in start
 zoxide init fish | source
+
+source $HOME/.local/bin/env.fish
+set -gx PATH "/home/najib/.config/herd-lite/bin" $PATH
+set -gx PHP_INI_SCAN_DIR "/home/najib/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 # vars
 set -gx EDITOR nvim
@@ -32,9 +36,9 @@ set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
 
 # aliases
 
-# xbps
+# pacman
 alias i='sudo pacman -S'
-alias u='i; sudo pacman -Syu'
+alias u='sudo pacman -Syu'
 alias q='pacman -Ss'
 alias r='sudo pacman -R'
 alias lspk='pacman -Ql'
@@ -55,15 +59,29 @@ alias cat bat
 # shortcuts
 alias v nvim
 alias vi nvim
+alias vim nvim
 alias lg lazygit
 alias e exit
-alias a tgpt
+alias a llm
 alias f nnn
+alias bsr ddgr
+alias sr 'BROWSER="w3m" "ddgr"'
+alias x tmux
 
 # pomodoro
 alias s "timer -f -c 25:00"
 alias b "timer -f -c 05:00"
 alias p "s && b && s && b && s && b && s"
+
+# harsh habit tracker
+alias ta "harsh ask"
+alias tl "harsh log"
+alias ts "harsh log stats"
+alias te "nvim $HOME/.config/harsh/habits"
+alias tel "nvim $HOME/.config/harsh/log"
+
+# notes
+alias n "nvim $HOME/notes"
 
 # customs
 
@@ -73,30 +91,24 @@ alias nzf 'nvim (fzf --preview="bat {}")'
 alias cdf 'cd (fzf --preview="bat {}")'
 
 # random customs
+alias lazyvim 'NVIM_APPNAME="lazyvim" nvim'
+alias nvchad 'NVIM_APPNAME="nvchad" nvim'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
 alias xclipc 'xclip -selection clipboard'
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
-alias vim 'NVIM_APPNAME="nvim_lazy" nvim'
 alias ktmux "tmux kill-server"
-
-function start
-    if test (count $argv) -lt 2
-        echo "Usage: start <tmux-session> <project-name>"
-        return 1
-    end
-
-    set -gx MAIN_PROJECT $argv[2]
-    tmuxifier s $argv[1]
-end
+alias d 'yt-dlp -f 18'
+alias yt youtube-tui
 
 # nnn config
 
 # plugins
 set -gx NNN_PLUG 'c:-!bat --paging always "$nnn"*;l:-!git log;d:-!git diff;s:!git status -s;g:!lazygit;m:gitroot;v:!convert "$nnn" png:- | xclip -sel clipboard -t image/png*;h:!du -sh "$nnn";j:autojump;L:fzplug;e:suedit;k:pskill;t:preview-tui;p:preview-tabbed'
-set -gx NNN_FIFO "/tmp/nnn.fifo"
 set -gx NNN_TRASH 1
 set -gx NNN_COLORS 5236
 set -gx NNN_FCOLORS 0404040000000600010F0F02
+set -x NNN_FIFO /tmp/nnn.fifo
+set -x NNN_TERMINAL kitty
 
 # fzf color
 set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
