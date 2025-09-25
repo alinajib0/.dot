@@ -1,3 +1,4 @@
+# @fish-lsp-disable 2002
 # caps lock as esc in tty
 # if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
 #   doas loadkeys ~/.config/loadkeys/loadkeysrc
@@ -103,7 +104,7 @@ alias yt youtube-tui
 # nnn config
 
 # plugins
-set -gx NNN_PLUG 'c:-!bat --paging always "$nnn"*;l:-!git log;d:-!git diff;s:!git status -s;g:!lazygit;m:gitroot;v:!convert "$nnn" png:- | xclip -sel clipboard -t image/png*;h:!du -sh "$nnn";j:autojump;L:fzplug;e:suedit;k:pskill;t:preview-tui;p:preview-tabbed'
+set -gx NNN_PLUG 'M:nmount;c:-!bat --paging always "$nnn"*;l:-!git log;d:-!git diff;s:!git status -s;g:!lazygit;m:gitroot;v:!convert "$nnn" png:- | xclip -sel clipboard -t image/png*;h:!du -sh "$nnn";j:autojump;L:fzplug;e:suedit;k:pskill;t:preview-tui;p:preview-tabbed'
 set -gx NNN_TRASH 1
 set -gx NNN_COLORS 5236
 set -gx NNN_FCOLORS 0404040000000600010F0F02
