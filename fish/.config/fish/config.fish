@@ -17,9 +17,9 @@ end
 # init in start
 zoxide init fish | source
 
-source $HOME/.local/bin/env.fish
-set -gx PATH "/home/najib/.config/herd-lite/bin" $PATH
-set -gx PHP_INI_SCAN_DIR "/home/najib/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+# source $HOME/.local/bin/env.fish
+# set -gx PATH "/home/najib/.config/herd-lite/bin" $PATH
+# set -gx PHP_INI_SCAN_DIR "/home/najib/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 # vars
 set -gx EDITOR nvim
@@ -38,19 +38,19 @@ set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
 # aliases
 
 # pacman
-alias i='sudo pacman -S'
-alias u='sudo pacman -Syu'
-alias q='pacman -Ss'
-alias r='sudo pacman -R'
-alias lspk='pacman -Ql'
+alias i 'sudo pacman -S'
+alias u 'sudo pacman -Syu'
+alias q 'pacman -Ss'
+alias r 'sudo pacman -R'
+alias lspk 'pacman -Ql'
 
 # listing 
 alias l 'eza --color=auto -l --icons=always'
-alias ll 'eza --color=auto -la --icons=always'
-alias ls 'eza --color=auto --icons=always'
-alias la 'eza --color=auto -a --icons=always'
-alias lt 'eza --color=auto -T --icons=always'
-alias lta 'eza --color=auto -aT --icons=always'
+alias ll 'eza --git --color=auto -la --icons=always'
+alias ls 'eza --git --color=auto --icons=always'
+alias la 'eza --git --color=auto -a --icons=always'
+alias lt 'eza --git --color=auto -T --icons=always'
+alias lta 'eza --git --color=auto -aT --icons=always'
 
 # replacements
 alias cd __zoxide_z
@@ -64,7 +64,6 @@ alias vim nvim
 alias lg lazygit
 alias e exit
 alias a llm
-alias f nnn
 alias bsr ddgr
 alias sr 'BROWSER="w3m" "ddgr"'
 alias x tmux
@@ -99,7 +98,8 @@ alias xclipc 'xclip -selection clipboard'
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
 alias ktmux "tmux kill-server"
 alias d 'yt-dlp -f 18'
-alias yt youtube-tui
+alias f "nvim $HOME/.config/fish/config.fish"
+alias y "youtube-tui"
 
 # nnn config
 
@@ -169,3 +169,9 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
+set --global --export HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
+set --global --export HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
+set --global --export HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
+fish_add_path --global --move --path "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin";
+if test -n "$MANPATH[1]"; set --global --export MANPATH '' $MANPATH; end;
+if not contains "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH; set --global --export INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH; end;
