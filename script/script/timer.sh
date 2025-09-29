@@ -145,7 +145,7 @@ play_notification() {
     
     # Try different ways to make sound
     if command -v paplay &>/dev/null; then
-        # Generate a beep using paplay (if available)
+	paplay /home/najib/sound/alarm.wav
         echo -e "\a"
     elif command -v speaker-test &>/dev/null; then
         timeout 0.5 speaker-test -t sine -f 800 -l 1 &>/dev/null
