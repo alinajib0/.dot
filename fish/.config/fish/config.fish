@@ -17,6 +17,15 @@ end
 # init in start
 zoxide init fish | source
 
+# for bat-extrs
+batman --export-env >/dev/null
+
+# for add wikiman key for fish (ctl + f)
+source /usr/share/wikiman/widgets/widget.fish
+
+# fish ablite
+fzf --fish | source
+
 # source $HOME/.local/bin/env.fish
 # set -gx PATH "/home/najib/.config/herd-lite/bin" $PATH
 # set -gx PHP_INI_SCAN_DIR "/home/najib/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
@@ -26,6 +35,7 @@ set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx HOME /home/najib
 set -gx SHELL fish
+set -gx TERM alacritty
 set -gx TERMINAL alacritty
 set -gx BROWSER librewolf
 set -gx FILE_BROWSER nnn
@@ -34,6 +44,7 @@ set -gx NVIM_APPNAME nvim
 set -gx MAIN_PROJECT test
 set -gx PATH "$HOME/.cargo/bin/:$PATH"
 set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
+set -gx MANPAGER "sh -c 'col -bx | bat -l man -p"
 
 # aliases
 
@@ -41,21 +52,22 @@ set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
 alias i 'sudo pacman -S'
 alias u 'sudo pacman -Syu'
 alias q 'pacman -Ss'
-alias r 'sudo pacman -R'
-alias lspk 'pacman -Ql'
+alias r 'sudo pacman -Rns'
+alias lspk 'pacman -Qe'
 
 # listing 
-alias l 'eza --color=auto -l --icons=always'
-alias ll 'eza --git --color=auto -la --icons=always'
-alias ls 'eza --git --color=auto --icons=always'
-alias la 'eza --git --color=auto -a --icons=always'
-alias lt 'eza --git --color=auto -T --icons=always'
-alias lta 'eza --git --color=auto -aT --icons=always'
+alias l 'eza --color=auto -l --icons=always --group-directories-first'
+alias ll 'eza --git --color=auto -la --icons=always --group-directories-first'
+alias ls 'eza --git --color=auto --icons=always --group-directories-first'
+alias la 'eza --git --color=auto -a --icons=always --group-directories-first'
+alias lt 'eza --git --color=auto -T --icons=always --group-directories-first'
+alias lta 'eza --git --color=auto -aT --icons=always --group-directories-first'
 
 # replacements
 alias cd __zoxide_z
 alias cdi __zoxide_zi
 alias cat bat
+alias man batman
 
 # shortcuts
 alias v nvim
@@ -67,11 +79,16 @@ alias a llm
 alias bsr ddgr
 alias sr 'BROWSER="w3m" "ddgr"'
 alias x tmux
+alias mv "mv -i"
+alias rm "rm -Iv"
+alias df "df -h"
+alias du "du -h -d 1"
+alias k killall
 
 # pomodoro
-alias s "timer -f -c 25:00"
-alias b "timer -f -c 05:00"
-alias p "s && b && s && b && s && b && s"
+alias s "timer -c 15:00"
+alias b "timer -c 05:00"
+alias P "s && b && s && b && s && b && s"
 
 # harsh habit tracker
 alias ta "harsh ask"
@@ -85,11 +102,6 @@ alias n "nvim $HOME/notes"
 
 # customs
 
-# fzf customs
-alias czf 'cat (fzf --preview="bat {}")'
-alias nzf 'nvim (fzf --preview="bat {}")'
-alias cdf 'cd (fzf --preview="bat {}")'
-
 # random customs
 alias lazyvim 'NVIM_APPNAME="lazyvim" nvim'
 alias nvchad 'NVIM_APPNAME="nvchad" nvim'
@@ -98,8 +110,24 @@ alias xclipc 'xclip -selection clipboard'
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
 alias ktmux "tmux kill-server"
 alias d 'yt-dlp -f 18'
-alias f "nvim $HOME/.config/fish/config.fish"
-alias y "youtube-tui"
+alias y youtube-tui
+alias c clear
+alias grep batgrep
+alias lsbc "lsblk | bat -l conf -p"
+alias freec "free -h | bat -l cpuinfo -p"
+alias bathelp 'bat --plain --language=help'
+
+alias cf "nvim $HOME/.config/fish/config.fish && source $HOME/.config/fish/config.fish"
+alias ct "nvim $HOME/.config/tmux/tmux.conf && source $HOME/.config/tmux/tmux.conf"
+alias ck "nvim $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
+alias cv "nvim $HOME/.config/nvim/"
+
+function p
+    ps aux | grep $argv
+end
+function h
+    $argv --help 2>&1 | bathelp
+end
 
 # nnn config
 
@@ -112,7 +140,19 @@ set -x NNN_FIFO /tmp/nnn.fifo
 set -x NNN_TERMINAL kitty
 
 # fzf color
+
+set -g FZF_CTRL_T_COMMAND "command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
+
 set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
+  --style minimal \
+  --color 16 \
+  --layout=reverse \
+  --height -8 \
+  --preview='bat -p --color=always {}' \
+
+  --tmux bottom,40%
+\
+\
   --highlight-line \
   --info=inline-right \
   --ansi \
