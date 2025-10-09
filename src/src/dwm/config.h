@@ -1,4 +1,4 @@
-/* see LICENSE file for copyright and license details. */
+/* See LICENSE file for copyright and license details. */
 
 /* Helper macros for spawning commands */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -9,7 +9,7 @@
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 10;
 #else
-static const unsigned int borderpx       = 2;   /* border pixel of windows */
+static const unsigned int borderpx       = 1;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 #if BAR_BORDER_PATCH
 /* This allows the bar border size to be explicitly set separately from borderpx.
@@ -17,7 +17,7 @@ static const unsigned int borderpx       = 2;   /* border pixel of windows */
  * automatically update with setborderpx. */
 static const unsigned int barborderpx    = 0;  /* border pixel of bar */
 #endif // BAR_BORDER_PATCH
-static const unsigned int snap           = 24;  /* snap pixel */
+static const unsigned int snap           = 32;  /* snap pixel */
 #if SWALLOW_PATCH
 static const int swallowfloating         = 0;   /* 1 means swallow floating windows by default */
 #endif // SWALLOW_PATCH
@@ -28,11 +28,11 @@ static const int scalepreview            = 4;        /* Tag preview scaling */
 static int nomodbuttons                  = 1;   /* allow client mouse button bindings that have no modifier */
 #endif // NO_MOD_BUTTONS_PATCH
 #if VANITYGAPS_PATCH
-static const unsigned int gappih         = 3;  /* horiz inner gap between windows */
-static const unsigned int gappiv         = 3;  /* vert inner gap between windows */
-static const unsigned int gappoh         = 3;  /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 3;  /* vert outer gap between windows and screen edge */
-static const int smartgaps_fact          = 2;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
+static const unsigned int gappih         = 20;  /* horiz inner gap between windows */
+static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
+static const unsigned int gappoh         = 10;  /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov         = 30;  /* vert outer gap between windows and screen edge */
+static const int smartgaps_fact          = 1;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 #endif // VANITYGAPS_PATCH
 #if AUTOSTART_PATCH
 static const char autostartblocksh[]     = "autostart_blocking.sh";
@@ -48,7 +48,7 @@ static const char *altbarcmd             = "$HOME/bar.sh"; /* Alternate bar laun
 #if BAR_HOLDBAR_PATCH
 static const int showbar                 = 0;   /* 0 means no bar */
 #else
-static const int showbar                 = 0;   /* 0 means no bar */
+static const int showbar                 = 1;   /* 0 means no bar */
 #endif // BAR_HOLDBAR_PATCH
 static const int topbar                  = 1;   /* 0 means bottom bar */
 #if TAB_PATCH
@@ -74,8 +74,8 @@ static const int sidepad                 = 10;  /* horizontal padding of bar */
 static const int focusonwheel            = 0;
 #endif // FOCUSONCLICK_PATCH
 #if FLOATPOS_PATCH
-static int floatposgrid_x                = 5;  /* float grid columns */
-static int floatposgrid_y                = 5;  /* float grid rows */
+static int floatposgrid_x                = 3;  /* float grid columns */
+static int floatposgrid_y                = 3;  /* float grid rows */
 #endif // FLOATPOS_PATCH
 #if RIODRAW_PATCH
 static const char slopspawnstyle[]       = "-t 0 -c 0.92,0.85,0.69,0.3 -o"; /* do NOT define -f (format) here */
@@ -119,7 +119,7 @@ static const int ulineall = 0;                  /* 1 to show underline on all ta
 #if NAMETAG_PATCH
 #if NAMETAG_PREPEND_PATCH
 /* The format in which the tag is written when named. E.g. %d: %.12s will write the tag number
- * followed the first 12 characters of the given string. You can also just use "%d: %s" here. */
+ * followed the /irst 12 characters of the given string. You can also just use "%d: %s" here. */
 #define NAMETAG_FORMAT "%d: %.12s"
 #else
 #define NAMETAG_FORMAT "%s"
@@ -429,7 +429,7 @@ static const Launcher launchers[] = {
 
 #if COOL_AUTOSTART_PATCH
 static const char *const autostart[] = {
-	"alacritty", NULL,
+	"st", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -525,8 +525,8 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+	// RULE(.class = "Gimp", .tags = 1 << 4)
+	// RULE(.class = "Firefox", .tags = 1 << 7)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -661,6 +661,16 @@ static const int nstack      = 0;    /* number of clients in primary stack area 
 #endif // FLEXTILE_DELUXE_LAYOUT
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
+#if PLACEMOUSE_PATCH
+static const int refreshrate_placemouse = 60; /* refresh rate (per second) for placemouse */
+#endif // PLACEMOUSE_PATCH
+#if DRAGMFACT_PATCH
+static const int refreshrate_dragmfact = 40; /* refresh rate (per second) for dragmfact */
+#endif // DRAGMFACT_PATCH
+#if DRAGCFACT_PATCH
+static const int refreshrate_dragcfact = 60; /* refresh rate (per second) for dragcfact */
+#endif // DRAGCFACT_PATCH
 #if DECORATION_HINTS_PATCH
 static const int decorhints  = 1;    /* 1 means respect decoration hints */
 #endif // DECORATION_HINTS_PATCH
@@ -1037,7 +1047,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
-	{ MODKEY,                       XK_g,          togglebar,              {0} },
+	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	#if TOGGLETOPBAR_PATCH
 	{ MODKEY|ShiftMask,             XK_b,          toggletopbar,           {0} },
 	#endif // TOGGLETOPBAR_PATCH
@@ -1210,7 +1220,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_f,          setlayout,              {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_m,          setlayout,              {.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,             XK_h,          setlayout,              {.v = &layouts[3]} },
 	#if COLUMNS_LAYOUT
 	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
 	#endif // COLUMNS_LAYOUT
@@ -1219,10 +1228,10 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_Tab,        rotatelayoutaxis,       {.i = +2 } },   /* flextile, 2 = master axis */
 	{ MODKEY|ControlMask|ShiftMask, XK_Tab,        rotatelayoutaxis,       {.i = +3 } },   /* flextile, 3 = stack axis */
 	{ MODKEY|ControlMask|Mod1Mask,  XK_Tab,        rotatelayoutaxis,       {.i = +4 } },   /* flextile, 4 = secondary stack axis */
-	{ MODKEY|Mod5Mask,              XK_t,          rotatelayoutaxis,       {.i = -1 } },   /* flextile, 1 = layout axis */
-	{ MODKEY|Mod5Mask,              XK_Tab,        rotatelayoutaxis,       {.i = -2 } },   /* flextile, 2 = master axis */
-	{ MODKEY|Mod5Mask|ShiftMask,    XK_Tab,        rotatelayoutaxis,       {.i = -3 } },   /* flextile, 3 = stack axis */
-	{ MODKEY|Mod5Mask|Mod1Mask,     XK_Tab,        rotatelayoutaxis,       {.i = -4 } },   /* flextile, 4 = secondary stack axis */
+	{ MODKEY|Mod1Mask,              XK_t,          rotatelayoutaxis,       {.i = -1 } },   /* flextile, 1 = layout axis */
+	{ MODKEY|Mod1Mask,              XK_Tab,        rotatelayoutaxis,       {.i = -2 } },   /* flextile, 2 = master axis */
+	{ MODKEY|Mod1Mask|ShiftMask,    XK_Tab,        rotatelayoutaxis,       {.i = -3 } },   /* flextile, 3 = stack axis */
+	{ MODKEY|Mod1Mask|Mod1Mask,     XK_Tab,        rotatelayoutaxis,       {.i = -4 } },   /* flextile, 4 = secondary stack axis */
 	{ MODKEY|ControlMask,           XK_Return,     mirrorlayout,           {0} },          /* flextile, flip master and stack areas */
 	#endif // FLEXTILE_DELUXE_LAYOUT
 	{ MODKEY,                       XK_space,      setlayout,              {0} },
@@ -1375,14 +1384,15 @@ static const Key keys[] = {
 	/* Note that due to key limitations the below example kybindings are defined with a Mod3Mask,
 	 * which is not always readily available. Refer to the patch wiki for more details. */
 	/* Client position is limited to monitor window area */
-	{ Mod3Mask,                     XK_u,            floatpos,               {.v = "-26x -26y" } }, // ↖
-	{ Mod3Mask,                     XK_i,            floatpos,               {.v = "  0x -26y" } }, // ↑
-	{ Mod3Mask,                     XK_o,            floatpos,               {.v = " 26x -26y" } }, // ↗
-	{ Mod3Mask,                     XK_j,            floatpos,               {.v = "-26x   0y" } }, // ←
-	{ Mod3Mask,                     XK_l,            floatpos,               {.v = " 26x   0y" } }, // →
-	{ Mod3Mask,                     XK_m,            floatpos,               {.v = "-26x  26y" } }, // ↙
-	{ Mod3Mask,                     XK_comma,        floatpos,               {.v = "  0x  26y" } }, // ↓
-	{ Mod3Mask,                     XK_period,       floatpos,               {.v = " 26x  26y" } }, // ↘
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_u,        floatpos,   {.v = "3G 3G 1P 1P" } }, // ↖
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_i,        floatpos,   {.v = "3G 3G 2P 1P" } }, // ↑
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_o,        floatpos,   {.v = "3G 3G 3P 1P" } }, // ↗
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_j,        floatpos,   {.v = "3G 3G 1P 2P" } }, // ←
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_k,        floatpos,   {.v = "3G 3G 2P 2P" } }, // ·
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_l,        floatpos,   {.v = "3G 3G 3P 2P" } }, // →
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_m,        floatpos,   {.v = "3G 3G 1P 3P" } }, // ↙
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_comma,    floatpos,   {.v = "3G 3G 2P 3P" } }, // ↓
+{ Mod3Mask|ShiftMask|Mod1Mask,  XK_period,   floatpos,   {.v = "3G 3G 3P 3P" } }, // ↘
 	/* Absolute positioning (allows moving windows between monitors) */
 	{ Mod3Mask|ControlMask,         XK_u,            floatpos,               {.v = "-26a -26a" } }, // ↖
 	{ Mod3Mask|ControlMask,         XK_i,            floatpos,               {.v = "  0a -26a" } }, // ↑

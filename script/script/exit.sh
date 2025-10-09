@@ -1,22 +1,21 @@
 #!/bin/bash
 
-options="lock Screen\nlogout\nsuspend\nreboot\npoweroff"
-choice=$(echo -e "$options" | dmenu)
+choice=$(printf "poweroff\nreboot\nsuspend\nlogout\nlock Screen" | rofi -dmenu -i)
 
 case "$choice" in
-    "lock Screen")
-        slock
+    "poweroff")
+        poweroff
+        ;;
+    "reboot")
+        reboot
+        ;;
+    "suspend")
+        systemctl suspend
         ;;
     "logout")
         pkill -u "$USER"
         ;;
-    "suspend")
-        doas zzz
-        ;;
-    "reboot")
-        doas reboot
-        ;;
-    "poweroff")
-        doas poweroff
+    "lock Screen")
+        slock
         ;;
 esac

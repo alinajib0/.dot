@@ -152,7 +152,7 @@
  * when clicking the status bar. Refer to the website for usage.
  * https://dwm.suckless.org/patches/statuscmd/
  */
-#define BAR_STATUSCMD_PATCH 0
+#define BAR_STATUSCMD_PATCH 1
 
 /* Status2d allows colors and rectangle drawing in your dwm status bar.
  * This patch is incompatible with the statuscolors patch which takes precedence.
@@ -607,7 +607,7 @@
 /* The cyclelayouts patch lets you cycle through all your layouts.
  * https://dwm.suckless.org/patches/cyclelayouts/
  */
-#define CYCLELAYOUTS_PATCH 1
+#define CYCLELAYOUTS_PATCH 0
 
 /* Make dwm respect _MOTIF_WM_HINTS property, and not draw borders around windows requesting
  * for it. Some applications use this property to notify window managers to not draw window
@@ -693,7 +693,7 @@
  * The size and position can be specified using absolute, relative or fixed co-ordinates and
  * https://github.com/bakkeby/patches/wiki/floatpos/
  */
-#define FLOATPOS_PATCH 0
+#define FLOATPOS_PATCH 1
 
 /* Add-on functionality for the above: make the float positions respect outer (vanity)gaps. */
 #define FLOATPOS_RESPECT_GAPS_PATCH 0
@@ -757,6 +757,18 @@
  * https://dwm.suckless.org/patches/fullscreen/
  */
 #define FULLSCREEN_PATCH 0
+
+/* Adds a rule identifying clients as a "game" such that if the client is in fullscreen and it
+ * loses focus (e.g. by moving to another tag) then it will automatically be minimized (set to
+ * IconicState and unmapped).
+ *
+ * When the client receives focus again (e.g. by going back to its tag) then it will
+ * automatically be unminimized (set to NormalState and mapped). This should address many of the
+ * black screen or window is tiny issues after having moved to another tag and back again.
+ *
+ * https://github.com/bakkeby/patches/wiki/steam
+ */
+#define GAMES_PATCH 0
 
 /* This patch provides a keybinding to rotate all clients in the currently selected
  * area (master or stack) without affecting the other area.
@@ -1096,7 +1108,7 @@
  * with the fakefullscreenclient patch and offers no practical functionality without it.
  * https://dwm.suckless.org/patches/selectivefakefullscreen/
  */
-#define SELECTIVEFAKEFULLSCREEN_PATCH 1
+#define SELECTIVEFAKEFULLSCREEN_PATCH 0
 
 /* Allows restarting dwm without the dependency of an external script.
  * https://dwm.suckless.org/patches/selfrestart/
@@ -1407,7 +1419,7 @@
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-vanitygaps-6.2.diff
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-cfacts-vanitygaps-6.2.diff
  */
-#define VANITYGAPS_PATCH 1
+#define VANITYGAPS_PATCH 0
 
 /* This patch adds outer gaps for the monocle layout.
  * Most gaps patches tries to avoid gaps on the monocle layout, as it is often used as a
@@ -1488,76 +1500,76 @@
 /* Bottomstack layout.
  * https://dwm.suckless.org/patches/bottomstack/
  */
-#define BSTACK_LAYOUT 1
+#define BSTACK_LAYOUT 0
 
 /* Bottomstack horizontal layout.
  * https://dwm.suckless.org/patches/bottomstack/
  */
-#define BSTACKHORIZ_LAYOUT 1
+#define BSTACKHORIZ_LAYOUT 0
 
 /* Centered master layout.
  * https://dwm.suckless.org/patches/centeredmaster/
  */
-#define CENTEREDMASTER_LAYOUT 1
+#define CENTEREDMASTER_LAYOUT 0
 
 /* Centered floating master layout.
  * https://dwm.suckless.org/patches/centeredmaster/
  */
-#define CENTEREDFLOATINGMASTER_LAYOUT 1
+#define CENTEREDFLOATINGMASTER_LAYOUT 0
 
 /* Same as the default tile layout except clients in the master area are arranged in
-* columns (i.e. left to right).
-* https://dwm.suckless.org/patches/columns/
-*/
-#define COLUMNS_LAYOUT 1
+ * columns (i.e. left to right).
+ * https://dwm.suckless.org/patches/columns/
+ */
+#define COLUMNS_LAYOUT 0
 
 /* Deck layout.
-* https://dwm.suckless.org/patches/deck/
-*/
-#define DECK_LAYOUT 1
+ * https://dwm.suckless.org/patches/deck/
+ */
+#define DECK_LAYOUT 0
 
 /* Fibonacci dwindle layout.
-* https://dwm.suckless.org/patches/fibonacci/
-*/
-#define FIBONACCI_DWINDLE_LAYOUT 1
+ * https://dwm.suckless.org/patches/fibonacci/
+ */
+#define FIBONACCI_DWINDLE_LAYOUT 0
 
 /* Fibonacci spiral layout.
-* https://dwm.suckless.org/patches/fibonacci/
-*/
-#define FIBONACCI_SPIRAL_LAYOUT 1
+ * https://dwm.suckless.org/patches/fibonacci/
+ */
+#define FIBONACCI_SPIRAL_LAYOUT 0
 
 /* Flextile deluxe layout.
-* A revamped, more flexible, and over-the-top version of the original flextile layout.
-* https://dwm.suckless.org/patches/flextile/ (original)
-*/
-#define FLEXTILE_DELUXE_LAYOUT 0
+ * A revamped, more flexible, and over-the-top version of the original flextile layout.
+ * https://dwm.suckless.org/patches/flextile/ (original)
+ */
+#define FLEXTILE_DELUXE_LAYOUT 1
 
 /* Gappless grid layout.
-* https://dwm.suckless.org/patches/gaplessgrid/
-*/
-#define GAPPLESSGRID_LAYOUT 1
+ * https://dwm.suckless.org/patches/gaplessgrid/
+ */
+#define GAPPLESSGRID_LAYOUT 0
 
 /* Gridmode (grid) layout.
-* https://dwm.suckless.org/patches/gridmode/
-*/
-#define GRIDMODE_LAYOUT 1
+ * https://dwm.suckless.org/patches/gridmode/
+ */
+#define GRIDMODE_LAYOUT 0
 
 /* Horizontal grid (horizgrid) layout.
-* https://dwm.suckless.org/patches/horizgrid/
-*/
-#define HORIZGRID_LAYOUT 1
+ * https://dwm.suckless.org/patches/horizgrid/
+ */
+#define HORIZGRID_LAYOUT 0
 
 /* Grid layout where nmaster controls the number of rows.
-* https://dwm.suckless.org/patches/nrowgrid/
-*/
-#define NROWGRID_LAYOUT 1
+ * https://dwm.suckless.org/patches/nrowgrid/
+ */
+#define NROWGRID_LAYOUT 0
 
 /* The default tile layout.
-* This can be optionally disabled in favour of other layouts.
-*/
+ * This can be optionally disabled in favour of other layouts.
+ */
 #define TILE_LAYOUT 1
 
 /* Monocle layout (default).
-* This can be optionally disabled in favour of other layouts.
-*/
+ * This can be optionally disabled in favour of other layouts.
+ */
 #define MONOCLE_LAYOUT 1
