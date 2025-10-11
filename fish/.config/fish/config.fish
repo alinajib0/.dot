@@ -41,10 +41,9 @@ set -gx BROWSER librewolf
 set -gx FILE_BROWSER nnn
 set -gx PAGER less
 set -gx NVIM_APPNAME nvim
-set -gx MAIN_PROJECT test
 set -gx PATH "$HOME/.cargo/bin/:$PATH"
 set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
-set -gx MANPAGER "sh -c 'col -bx | bat -l man -p"
+set -gx MANPAGER "bat -l man -p"
 
 # aliases
 
@@ -110,7 +109,7 @@ alias nvchad 'NVIM_APPNAME="nvchad" nvim'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
 alias xclipc 'xclip -selection clipboard'
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
-alias ktmux "tmux kill-server"
+alias kt "tmux kill-server"
 alias d 'yt-dlp -f 18'
 alias y youtube-tui
 alias c clear
@@ -152,7 +151,6 @@ set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS \
   --height -8 \
   --preview='bat -p --color=always {}' \
 
-  --tmux bottom,40%
 \
 \
   --highlight-line \
