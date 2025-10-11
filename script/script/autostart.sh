@@ -2,11 +2,13 @@
 
 xrandr --output VGA-0 --scale 1.2 --gamma 1.0:1.0:1.0
 setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win grp:alt_caps_toggle caps:escape
+feh --bg-fill /home/najib/.dot/wallpaper/photos/wallpaper/3.png
 
 dunst &
 dwmblocks &
 sxhkd &
 clipmenud &
+"$HOME"/.dot/script/script/idle.sh &
 
 alacritty -e termdown 2025-12-31 &
 
