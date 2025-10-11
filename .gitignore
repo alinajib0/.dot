@@ -1,10 +1,10 @@
-src/src
 !src/src/dwm/patches.h
 !src/src/dwm/config.h
 !src/src/dmenu/patches.h
 !src/src/dmenu/config.h
 !src/src/slstatus/config.h
 !src/src/dwmblocks/config.h
+src/src
 
 /nnn
 
