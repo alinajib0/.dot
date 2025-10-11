@@ -19,7 +19,7 @@ static int instant = 0;                     /* -n  option; if 1, selects matchin
 #endif // INSTANT_PATCH
 #if CENTER_PATCH
 static int center = 0;                      /* -c  option; if 0, dmenu won't be centered on the screen */
-static int min_width = 400;                 /* minimum width when centered */
+static int min_width = 500;                 /* minimum width when centered */
 #endif // CENTER_PATCH
 #if BARPADDING_PATCH
 static const int vertpad = 10;              /* vertical padding of bar */
@@ -55,8 +55,8 @@ static const char *symbol_2 = ">";
 #endif // SYMBOLS_PATCH
 
 #if ALPHA_PATCH
-static const unsigned int baralpha = 0x98;
-static const unsigned int borderalpha = 0x30;
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
 	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
@@ -158,7 +158,7 @@ static const char worddelimiters[] = " ";
  * accessed with the global_esc keysym + mod mask
  */
 static unsigned int vi_mode = 1;
-static unsigned int start_mode = 0;			/* mode to use when -vi is passed. 0 = insert mode, 1 = normal mode */
+static unsigned int start_mode = 1;			/* mode to use when -vi is passed. 0 = insert mode, 1 = normal mode */
 static Key global_esc = { XK_n, Mod1Mask };	/* escape key when vi mode is not enabled explicitly */
 static Key quit_keys[] = {
 	/* keysym	modifier */
@@ -168,7 +168,7 @@ static Key quit_keys[] = {
 
 #if BORDER_PATCH
 /* Size of the window border */
-static unsigned int border_width = 2;
+static unsigned int border_width = 0;
 #endif // BORDER_PATCH
 
 #if PREFIXCOMPLETION_PATCH

@@ -5,7 +5,7 @@
  * when including this patch.
  * https://github.com/bakkeby/patches/blob/master/dmenu/dmenu-alpha-5.0_20210725_523aa08.diff
  */
-#define ALPHA_PATCH 1
+#define ALPHA_PATCH 0
 
 /* This adds padding for dmenu in similar fashion to the similarly named patch for dwm. The idea
  * is to have dmenu appear on top of the bar when using said patch in dwm.
@@ -41,7 +41,7 @@
 /* This patch centers dmenu in the middle of the screen.
  * https://tools.suckless.org/dmenu/patches/center/
  */
-#define CENTER_PATCH 1
+#define CENTER_PATCH 0
 
 /* Minor patch to enable the use of Ctrl+v (XA_PRIMARY) and Ctrl+Shift+v (CLIPBOARD) to paste.
  * By default dmenu only supports Ctrl+y and Ctrl+Shift+y to paste.
@@ -362,7 +362,7 @@
  *
  * https://tools.suckless.org/dmenu/patches/vi-mode/
  */
-#define VI_MODE_PATCH 0
+#define VI_MODE_PATCH 1
 
 /* Adds extended window manager hints such as _NET_WM_WINDOW_TYPE and _NET_WM_WINDOW_TYPE_DOCK.
  * https://github.com/Baitinq/dmenu/blob/master/patches/dmenu-wm_type.diff
