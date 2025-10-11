@@ -56,10 +56,10 @@ shift + alt + 4
 	xrandr --output VGA-0 --gamma 1.0:0.6:0.35 --brightness 0.5
 
 super + r
-	rofi -show drun
+	dmenu_run
 
 super + shift + e
-	rofi -show emoji
+	bemoji
 
 super + Escape
 	xkill
@@ -69,10 +69,6 @@ Print
 
 super + w
 	pkill -USR1 -x sxhkd
-
-# Missing binding - consider adding if needed
-# super + a
-#	dmenu-translate
 
 super + z
 	systemctl suspend
