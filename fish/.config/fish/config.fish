@@ -1,8 +1,8 @@
 # @fish-lsp-disable 2002
 # caps lock as esc in tty
-# if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
-#   doas loadkeys ~/.config/loadkeys/loadkeysrc
-# end
+if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
+  sudo loadkeys ~/.config/loadkeys/loadkeysrc
+end
 
 # startx in tty1 after login
 # if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
@@ -56,12 +56,14 @@ alias r 'sudo pacman -Rns'
 alias lspk 'pacman -Qe'
 
 # listing 
-alias l 'eza --color=auto -l --icons=always --group-directories-first'
-alias ll 'eza --git --color=auto -la --icons=always --group-directories-first'
-alias ls 'eza --git --color=auto --icons=always --group-directories-first'
-alias la 'eza --git --color=auto -a --icons=always --group-directories-first'
-alias lt 'eza --git --color=auto -T --icons=always --group-directories-first'
-alias lta 'eza --git --color=auto -aT --icons=always --group-directories-first'
+alias l 'eza -g --git --color=auto -l --icons=always --group-directories-first'
+alias ll 'eza -g --git --color=auto -la --icons=always --group-directories-first'
+alias ls 'eza -g --git --color=auto --icons=always --group-directories-first'
+alias la 'eza -g --git --color=auto -a --icons=always --group-directories-first'
+alias lt 'eza -g --git --color=auto -T --icons=always --group-directories-first'
+alias lta 'eza -g --git --color=auto -aT --icons=always --group-directories-first'
+alias llt 'eza -g --git --color=auto -lT --icons=always --group-directories-first'
+alias llta 'eza -g --git --color=auto -laT --icons=always --group-directories-first'
 
 # replacements
 alias cd __zoxide_z

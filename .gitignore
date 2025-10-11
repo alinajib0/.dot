@@ -4,6 +4,7 @@ src/src
 !src/src/dmenu/patches.h
 !src/src/dmenu/config.h
 !src/src/slstatus/config.h
+!src/src/dwmblocks/config.h
 
 /nnn
 
