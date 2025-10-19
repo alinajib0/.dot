@@ -54,7 +54,7 @@ declare -A RELOAD_COMMANDS=(
 )
 
 # Show menu and get selection
-selection=$(printf "%s\n" "${!CONFIG_PATHS[@]}" | dmenu -p "Edit config:")
+selection=$(printf "%s\n" "${!CONFIG_PATHS[@]}" | fzf)
 
 if [[ -n "$selection" ]]; then
   config_path="${CONFIG_PATHS[$selection]}"

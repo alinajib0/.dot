@@ -1,7 +1,7 @@
 # @fish-lsp-disable 2002
 # caps lock as esc in tty
 if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
-  sudo loadkeys ~/.config/loadkeys/loadkeysrc
+    sudo loadkeys ~/.config/loadkeys/loadkeysrc
 end
 
 # startx in tty1 after login
@@ -105,6 +105,7 @@ alias n "nvim $HOME/notes"
 
 # random customs
 alias lazyvim 'NVIM_APPNAME="lazyvim" nvim'
+alias av 'NVIM_APPNAME="astronvim" nvim'
 alias nvchad 'NVIM_APPNAME="nvchad" nvim'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
 alias xclipc 'xclip -selection clipboard'
@@ -112,6 +113,7 @@ alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
 alias kt "tmux kill-server"
 alias d 'yt-dlp -f 18'
 alias y youtube-tui
+alias yp pipe-viewer
 alias c clear
 alias grep batgrep
 alias lsbc "lsblk | bat -l conf -p"
@@ -209,9 +211,18 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
-set --global --export HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
-set --global --export HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
-set --global --export HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
-fish_add_path --global --move --path "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin";
-if test -n "$MANPATH[1]"; set --global --export MANPATH '' $MANPATH; end;
-if not contains "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH; set --global --export INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH; end;
+set --global --export HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+
+set --global --export HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar"
+
+set --global --export HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew"
+
+fish_add_path --global --move --path "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin"
+
+if test -n "$MANPATH[1]"
+    set --global --export MANPATH '' $MANPATH
+end
+
+if not contains "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH
+    set --global --export INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH
+end
