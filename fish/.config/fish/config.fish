@@ -4,16 +4,6 @@ if test -z "$DISPLAY" && string match -qr '^/dev/tty[0-9]+$' (tty)
     sudo loadkeys ~/.config/loadkeys/loadkeysrc
 end
 
-# startx in tty1 after login
-# if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
-#   exec startx
-# end
-
-# change fish greeting
-function fish_greeting
-    echo WELCOME
-end
-
 # init in start
 zoxide init fish | source
 
@@ -26,9 +16,8 @@ source /usr/share/wikiman/widgets/widget.fish
 # fish ablite
 fzf --fish | source
 
-# source $HOME/.local/bin/env.fish
-# set -gx PATH "/home/najib/.config/herd-lite/bin" $PATH
-# set -gx PHP_INI_SCAN_DIR "/home/najib/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+# set fish greeting
+set -g fish_greeting ""
 
 # vars
 set -gx EDITOR nvim
@@ -44,6 +33,7 @@ set -gx NVIM_APPNAME nvim
 set -gx PATH "$HOME/.cargo/bin/:$PATH"
 set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
 set -gx MANPAGER "bat -l man -p"
+set -gx MANPAGER2 "bat -l man -p"
 
 # aliases
 
@@ -73,10 +63,8 @@ alias man batman
 # shortcuts
 alias v nvim
 alias vi nvim
-alias vim nvim
 alias lg lazygit
 alias e exit
-alias a llm
 alias bsr ddgr
 alias sr 'BROWSER="w3m" "ddgr"'
 alias x tmux
@@ -91,22 +79,13 @@ alias s "timer -c 15:00"
 alias b "timer -c 05:00"
 alias P "s && b && s && b && s && b && s"
 
-# harsh habit tracker
-alias ta "harsh ask"
-alias tl "harsh log"
-alias ts "harsh log stats"
-alias te "nvim $HOME/.config/harsh/habits"
-alias tel "nvim $HOME/.config/harsh/log"
-
-# notes
-alias n "nvim $HOME/notes"
-
 # customs
 
 # random customs
-alias lazyvim 'NVIM_APPNAME="lazyvim" nvim'
+alias myvim 'NVIM_APPNAME="myNvim" nvim'
 alias av 'NVIM_APPNAME="astronvim" nvim'
 alias nvchad 'NVIM_APPNAME="nvchad" nvim'
+alias cleanvi 'nvim --clean'
 alias j 'setxkbmap -layout us,ara -variant ,digits -option altwin:swap_alt_win -option grp:alt_caps_toggle caps:escape'
 alias xclipc 'xclip -selection clipboard'
 alias lsn "cat ~/.config/nnn/.selection | tr '\\0' '\\n'"
@@ -211,18 +190,15 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
+
+# brew
 set --global --export HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
-
 set --global --export HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar"
-
 set --global --export HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew"
-
 fish_add_path --global --move --path "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin"
-
 if test -n "$MANPATH[1]"
     set --global --export MANPATH '' $MANPATH
 end
-
 if not contains "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH
     set --global --export INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH
 end
