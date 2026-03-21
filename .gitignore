@@ -8,7 +8,6 @@ src/src
 
 /nnn
 
-nvim
 tmux/.config/tmux/plugins
 
 mpv/.config/mpv/scripts
