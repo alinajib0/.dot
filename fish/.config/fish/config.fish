@@ -10,19 +10,22 @@ zoxide init fish | source
 # for bat-extrs
 batman --export-env >/dev/null
 
-# for add wikiman key for fish (ctl + f)
-source /usr/share/wikiman/widgets/widget.fish
-
 # fish ablite
 fzf --fish | source
 
 # set fish greeting
 set -g fish_greeting ""
 
+# add folder to path
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+fish_add_path "$PNPM_HOME/bin"
+
 # vars
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx HOME /home/najib
+set -gx XDG_CINFIG_HOME /home/najib/.config
+set -gx XDG_CINFIG_DIRS /home/najib/.config
 set -gx SHELL fish
 set -gx TERM alacritty
 set -gx TERMINAL alacritty
@@ -34,6 +37,8 @@ set -gx PATH "$HOME/.cargo/bin/:$PATH"
 set -gx ATAC_KEY_BINDINGS ~/.config/atac/keys.toml
 set -gx MANPAGER "bat -l man -p"
 set -gx MANPAGER2 "bat -l man -p"
+set -gx OBSIDIAN_USE_WAYLAND 1
+set -gx ATAC_KEY_BINDINGS "~/.config/atac/vim_key_bindings.toml"
 
 # aliases
 
@@ -93,16 +98,18 @@ alias kt "tmux kill-server"
 alias d 'yt-dlp -f 18'
 alias y youtube-tui
 alias yp pipe-viewer
+alias freec "free -h | bat -l cpuinfo -p"
 alias c clear
 alias grep batgrep
 alias lsbc "lsblk | bat -l conf -p"
-alias freec "free -h | bat -l cpuinfo -p"
 alias bathelp 'bat --plain --language=help'
 
 alias cf "nvim $HOME/.config/fish/config.fish && source $HOME/.config/fish/config.fish"
 alias ct "nvim $HOME/.config/tmux/tmux.conf && source $HOME/.config/tmux/tmux.conf"
-alias ck "nvim $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
+# alias ck "nvim $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
 alias cv "nvim $HOME/.config/nvim/"
+alias ch "nvim $HOME/.config/hypr/hyprland.lua"
+alias cw "nvim $HOME/.config/waybar/config.jsonc"
 
 function p
     ps aux | grep $argv
@@ -118,8 +125,9 @@ set -gx NNN_PLUG 'M:nmount;c:-!bat --paging always "$nnn"*;l:-!git log;d:-!git d
 set -gx NNN_TRASH 1
 set -gx NNN_COLORS 5236
 set -gx NNN_FCOLORS 0404040000000600010F0F02
-set -x NNN_FIFO /tmp/nnn.fifo
-set -x NNN_TERMINAL kitty
+set -gx NNN_FIFO /tmp/nnn.fifo
+set -gx NNN_TERMINAL kitty
+set -x NNN_BMS "d:~/Downloads;h:~;c:~/.config;p:~/projects"
 
 # fzf color
 
