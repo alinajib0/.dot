@@ -1,3 +1,14 @@
+local logo = {
+  "           ▄ ▄                   ",
+  "       ▄   ▄▄▄       ▄▄▄ ▄ ▄     ",
+  "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
+  "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
+  "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
+  "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
+  "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
+  "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
+  "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
+}
 return {
 
   {
@@ -52,7 +63,7 @@ return {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     keys = {
-      { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+      { "<Tab>",   "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
       { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
     },
   },
@@ -122,22 +133,30 @@ return {
       dashboard = {
         enable = false,
         preset = {
-          header = [[
-           ▄ ▄                   
-       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     
-       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     
-    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     
-  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  
-  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄
-▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █
-█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
-    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    
-]],
+          header = table.concat(logo, "\n") },
+      },
+      scroll = { enable = true },
+      picker = {
+        sources = {
+          explorer = {
+            layout = { layout = { position = "right" } },
+          },
         },
       },
     },
-    scroll = { enable = false },
   },
 
   { "MagicDuck/grug-far.nvim", enable = false },
+  {
+    "tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    }
+  },
+  { "Pocco81/auto-save.nvim",  event = "InsertLeave", config = true }
+
 }
