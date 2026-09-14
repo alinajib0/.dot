@@ -1,0 +1,1 @@
+atac bat bat-extras btop code eza fastfetch fd fish flatpak fzf gimp git github-cli glow lazygit mpv neovim nnn obsidian-appimage opencode pnpm stow tldr tmux trash-cli wget yazi yt-dlp zathura zed zen zoxide
